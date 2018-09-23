@@ -1,6 +1,10 @@
 ;; -*- lexical-binding: t -*-
 (setq debug-on-error t)
 
+;; Fix TLS connection error for elpa.gnu.org
+(with-eval-after-load 'gnutls
+  (add-to-list 'gnutls-trustfiles "/usr/local/etc/libressl/cert.pem"))
+
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
